@@ -36,7 +36,7 @@
             C = (t(27), t(8)),
             u = t.n(C),
             I = "Who Am I ?",
-            Y = "Hello! My name is Evram, and I am a Cairo-based Software Engineer who's well versed in the .Net world. I was honoured to work with professionals at companies like Veeeta.com and Thiqah.sa.",
+            Y = "Hello! My name is Evram, and I am a Cairo-based Software Engineer who's well versed in the .Net world. I was honoured to work with professionals at companies like vezeeta.com and Thiqah.sa.",
             h = "Right now I am focusing on full-stack development primarily with Blazor alongside C#. I am planning in future to level up in devops and distributed systems architectures.",
             G = "Let's grab a coffee together!";
 
