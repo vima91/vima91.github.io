@@ -13,7 +13,7 @@
             c = t(2),
             o = (t(25), t(7)),
             m = t.n(o),
-            w = { name: "Evram Ehab", role: "Software Engineer" },
+            w = { name: "Evram Ehab", role: "Software Engineering Manager" },
             B = function(e) {
                 Object(r.a)(t, e);
                 var A = Object(c.a)(t);
