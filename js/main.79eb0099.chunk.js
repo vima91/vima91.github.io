@@ -36,8 +36,8 @@
             C = (t(27), t(8)),
             u = t.n(C),
             I = "Who Am I ?",
-            Y = "Hello! My name is Evram, and I am a Cairo-based Software Engineer who's well versed in the .Net world. I was honoured to work with professionals at companies like vezeeta.com and Thiqah.sa.",
-            h = "Right now I am focusing on full-stack development primarily with Blazor alongside C#. I am planning in future to level up in devops and distributed systems architectures. I also do consultations and general freelancing, so...",
+            Y = "Hello! My name is Evram, and I am a Cairo-based Software Engineer who's well versed in the .Net world. I am a software engineering manager, my most recent achievement is spearheading the awesome Vosita.com, and building a great team in the process (and being extremely proud of this team), challenging a $3 billion industry leader.",
+            h = "Right now I am focusing on leading and managing high-performing teams to deliver innovative software solutions. I also do consultations and general freelancing, so...",
             G = "Let's grab a coffee together!";
 
         function d() { return n.a.createElement("div", { class: "section", id: "about" }, n.a.createElement("div", { class: "box" }, n.a.createElement("div", { class: "left" }, n.a.createElement("span", { class: "text-section" }, n.a.createElement("h1", null, I), n.a.createElement("p", null, Y), n.a.createElement("p", null, h), n.a.createElement("p", null, n.a.createElement("a", { href: "#contact" }, G)))), n.a.createElement("div", { class: "right" }, n.a.createElement("img", { src: u.a })))) }
