@@ -98,7 +98,7 @@ export function Skills() {
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                                className="glass-card hover:scale-105 transition-transform duration-300"
+                                                className="glass-card hover:shadow-2xl hover:border-primary/30 transition-all duration-300"
                                             >
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <Icon className={`w-6 h-6 ${category.color}`} />
@@ -108,7 +108,7 @@ export function Skills() {
                                                     {category.skills.map((skill) => (
                                                         <span
                                                             key={skill}
-                                                            className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium hover:bg-primary/20 transition-colors"
+                                                            className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20 hover:bg-primary/20 hover:border-primary/40 transition-colors"
                                                         >
                                                             {skill}
                                                         </span>

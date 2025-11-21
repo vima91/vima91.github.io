@@ -110,10 +110,10 @@ export function Projects() {
                                         return (
                                             <motion.div
                                                 key={project.title}
-                                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                                                animate={{ opacity: 1, x: 0 }}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                                className={`glass-card hover:scale-[102%] transition-all duration-300 relative overflow-hidden ${project.featured ? "border-2 border-primary/50" : ""
+                                                className={`glass-card hover:shadow-2xl hover:border-primary/30 transition-all duration-300 relative ${project.featured ? "border-2 border-primary/50" : ""
                                                     }`}
                                             >
                                                 {/* Gradient background */}
@@ -122,8 +122,8 @@ export function Projects() {
                                                 <div className="relative">
                                                     {/* Featured badge */}
                                                     {project.featured && (
-                                                        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                                                            ⭐ Featured
+                                                        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                                                            <span className="text-white">⭐ Featured</span>
                                                         </div>
                                                     )}
 
@@ -155,8 +155,8 @@ export function Projects() {
                                                         <ul className="space-y-2">
                                                             {project.achievements.map((achievement, i) => (
                                                                 <li key={i} className="flex items-start gap-2 text-sm">
-                                                                    <span className="text-accent mt-1">▸</span>
-                                                                    <span>{achievement}</span>
+                                                                    <span className="text-accent mt-0.5">▸</span>
+                                                                    <span className="flex-1">{achievement}</span>
                                                                 </li>
                                                             ))}
                                                         </ul>
@@ -167,7 +167,7 @@ export function Projects() {
                                                         {project.technologies.map((tech) => (
                                                             <span
                                                                 key={tech}
-                                                                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                                                                className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20 hover:bg-primary/20 hover:border-primary/40 transition-colors"
                                                             >
                                                                 {tech}
                                                             </span>
