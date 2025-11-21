@@ -9,6 +9,7 @@ export function Contact() {
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [formState, setFormState] = React.useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [showQR, setShowQR] = React.useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -214,10 +215,36 @@ export function Contact() {
                                 <a
                                     href="/contact.vcf"
                                     download="Evram-Ehab.vcf"
-                                    className="text-primary hover:text-accent transition-colors font-medium inline-block"
+                                    className="text-primary hover:text-accent transition-colors font-medium inline-block mb-2"
                                 >
                                     📇 Add to Contacts
                                 </a>
+
+                                <div className="mt-2">
+                                    <button
+                                        onClick={() => setShowQR(!showQR)}
+                                        className="text-xs text-muted-foreground hover:text-primary transition-colors underline"
+                                    >
+                                        {showQR ? "Hide QR Code" : "Scan QR Code instead"}
+                                    </button>
+                                </div>
+
+                                {showQR && (
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.8 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="mt-4 p-4 bg-white rounded-lg inline-block"
+                                    >
+                                        <img
+                                            src="/contact-qr.png"
+                                            alt="Contact vCard QR Code"
+                                            className="w-48 h-48"
+                                        />
+                                        <p className="text-xs text-gray-600 mt-2">Scan to add contact</p>
+                                    </motion.div>
+                                )}
                             </div>
                         </div>
                     </div>

@@ -3,11 +3,13 @@
 import * as React from "react";
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
+import { Menu, X } from "lucide-react";
 
 export function Header() {
     const [isScrolled, setIsScrolled] = React.useState(false);
     const [isVisible, setIsVisible] = React.useState(true);
     const [lastScrollY, setLastScrollY] = React.useState(0);
+    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -16,6 +18,7 @@ export function Header() {
             // Show/hide header based on scroll direction
             if (currentScrollY > lastScrollY && currentScrollY > 100) {
                 setIsVisible(false);
+                setMobileMenuOpen(false); // Close mobile menu on scroll down
             } else {
                 setIsVisible(true);
             }
@@ -37,6 +40,10 @@ export function Header() {
         { href: "#contact", label: "Contact" },
     ];
 
+    const handleLinkClick = () => {
+        setMobileMenuOpen(false);
+    };
+
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
@@ -52,7 +59,7 @@ export function Header() {
                         Evram Ehab
                     </Link>
 
-                    {/* Navigation Links */}
+                    {/* Desktop Navigation Links */}
                     <div className="hidden md:flex items-center gap-1 lg:gap-2">
                         {navLinks.map((link) => (
                             <a
@@ -65,26 +72,44 @@ export function Header() {
                         ))}
                     </div>
 
-                    {/* Theme Toggle */}
-                    <div className="flex items-center gap-4">
+                    {/* Right Side: Theme Toggle + Mobile Menu Button */}
+                    <div className="flex items-center gap-3">
                         <ThemeToggle />
 
-                        {/* Mobile Menu Button (simplified - shows nav links on mobile) */}
-                        <div className="md:hidden">
-                            <div className="flex flex-col gap-1 items-end">
-                                {navLinks.slice(1, 4).map((link) => (
-                                    <a
-                                        key={link.href}
-                                        href={link.href}
-                                        className="text-xs opacity-70 hover:opacity-100 transition-opacity"
-                                    >
-                                        {link.label}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
+                        {/* Mobile Hamburger Menu Button */}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="md:hidden glass-card p-3 hover:scale-110 transition-transform"
+                            aria-label="Toggle mobile menu"
+                        >
+                            {mobileMenuOpen ? (
+                                <X className="w-5 h-5 text-primary" />
+                            ) : (
+                                <Menu className="w-5 h-5 text-primary" />
+                            )}
+                        </button>
                     </div>
                 </nav>
+
+                {/* Mobile Menu Dropdown */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden mt-4 glass-card rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-5 duration-300">
+                        <div className="flex flex-col">
+                            {navLinks.map((link, index) => (
+                                <a
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={handleLinkClick}
+                                    className={`px-4 py-3 text-base font-medium hover:bg-primary/10 transition-colors ${index !== navLinks.length - 1 ? "border-b border-border/50" : ""
+                                        }`}
+                                    style={{ animationDelay: `${index * 50}ms` }}
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </header>
     );

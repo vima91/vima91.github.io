@@ -7,12 +7,9 @@ import { Download, Calendar, ChevronDown } from "lucide-react";
 export function Hero() {
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-            {/* Animated background gradient */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20 animate-gradient" />
-                <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/30 rounded-full blur-3xl animate-pulse-slow" />
-                <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-accent/30 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
-            </div>
+            {/* Simplified background gradient for better performance */}
+            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
+
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-center">
