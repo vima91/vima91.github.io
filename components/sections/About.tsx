@@ -8,6 +8,9 @@ export function About() {
     const ref = React.useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+    // Calculate years of experience dynamically
+    const yearsOfExperience = new Date().getFullYear() - 2015;
+
     return (
         <section id="about" className="py-20 sm:py-32" ref={ref}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +54,7 @@ export function About() {
                         {/* Quick stats or highlights */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-border">
                             {[
-                                { value: "9+", label: "Years Experience" },
+                                { value: `${yearsOfExperience}+`, label: "Years Experience" },
                                 { value: "8+", label: "Companies" },
                                 { value: "15+", label: "Major Projects" },
                                 { value: "∞", label: "Technologies" },
