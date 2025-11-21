@@ -241,6 +241,7 @@ export function Contact() {
                                             src="/contact-qr.png"
                                             alt="Contact vCard QR Code"
                                             className="w-48 h-48"
+                                            loading="lazy"
                                         />
                                         <p className="text-xs text-gray-600 mt-2">Scan to add contact</p>
                                     </motion.div>
