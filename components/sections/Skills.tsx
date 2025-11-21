@@ -98,7 +98,7 @@ export function Skills() {
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                                className="glass-card hover:shadow-2xl hover:border-primary/30 transition-all duration-300"
+                                                className="glass-card hover:shadow-2xl hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
                                             >
                                                 <div className="flex items-center gap-3 mb-4">
                                                     <Icon className={`w-6 h-6 ${category.color}`} />

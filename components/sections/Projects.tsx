@@ -113,7 +113,7 @@ export function Projects() {
                                                 initial={{ opacity: 0, y: 20 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                                className={`glass-card hover:shadow-2xl hover:border-primary/30 transition-all duration-300 relative ${project.featured ? "border-2 border-primary/50" : ""
+                                                className={`glass-card hover:shadow-2xl hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 relative ${project.featured ? "border-2 border-primary/50" : ""
                                                     }`}
                                             >
                                                 {/* Gradient background */}
@@ -123,7 +123,7 @@ export function Projects() {
                                                     {/* Featured badge */}
                                                     {project.featured && (
                                                         <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                                                            <span className="text-white">⭐ Featured</span>
+                                                            <span className="!text-white">⭐ Featured</span>
                                                         </div>
                                                     )}
 
@@ -154,8 +154,8 @@ export function Projects() {
                                                         <h4 className="font-semibold mb-2 text-sm uppercase tracking-wide text-primary">Key Achievements:</h4>
                                                         <ul className="space-y-2">
                                                             {project.achievements.map((achievement, i) => (
-                                                                <li key={i} className="flex items-start gap-2 text-sm">
-                                                                    <span className="text-accent mt-0.5">▸</span>
+                                                                <li key={i} className="flex items-center gap-2 text-sm">
+                                                                    <span className="text-accent shrink-0">▸</span>
                                                                     <span className="flex-1">{achievement}</span>
                                                                 </li>
                                                             ))}

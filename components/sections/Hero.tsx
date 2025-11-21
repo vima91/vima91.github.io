@@ -59,7 +59,7 @@ export function Hero() {
                             href="#contact"
                             className="group relative px-8 py-4 bg-gradient-to-r from-primary to-accent rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
                         >
-                            <span className="relative z-10 flex items-center gap-2 text-white">
+                            <span className="relative z-10 flex items-center gap-2 !text-white">
                                 <Calendar className="w-5 h-5" />
                                 Let's Collaborate
                             </span>
