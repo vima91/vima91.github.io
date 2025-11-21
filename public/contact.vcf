@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Evram Ehab
+N:Ehab;Evram;;;
+TITLE:Software Engineer & Technical Consultant
+EMAIL;TYPE=INTERNET;TYPE=WORK:e@evram.me
+URL:https://evram.me
+URL;TYPE=LinkedIn:https://linkedin.com/in/evram-ehab
+URL;TYPE=GitHub:https://github.com/vima91
+URL;TYPE=Twitter:https://twitter.com/evram_ehab
+NOTE:Specialized in .NET backend development and full-stack solutions.
+END:VCARD

@@ -211,9 +211,13 @@ export function Contact() {
                             {/* VCard Download */}
                             <div className="glass-card text-center">
                                 <p className="text-sm text-muted-foreground mb-2">Save my contact information</p>
-                                <button className="text-primary hover:text-accent transition-colors font-medium">
+                                <a
+                                    href="/contact.vcf"
+                                    download="Evram-Ehab.vcf"
+                                    className="text-primary hover:text-accent transition-colors font-medium inline-block"
+                                >
                                     📇 Add to Contacts
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
