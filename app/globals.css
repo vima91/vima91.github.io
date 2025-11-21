@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: light-dark(#ffffff, 240 10% 3.9%);
-  --color-foreground: light-dark(240 10% 3.9%, #ffffff);
-  --color-primary: light-dark(262 83% 58%, 263 70% 65%);
-  --color-accent: light-dark(189 94% 43%, 189 94% 50%);
-  --color-muted: light-dark(240 4.8% 95.9%, 240 3.7% 15.9%);
-  --color-border: light-dark(240 5.9% 90%, 240 3.7% 15.9%);
+  --color-background: light-dark(hsl(0 0% 100%), hsl(240 10% 3.9%));
+  --color-foreground: light-dark(hsl(240 10% 3.9%), hsl(0 0% 100%));
+  --color-primary: light-dark(hsl(262 83% 58%), hsl(263 70% 65%));
+  --color-accent: light-dark(hsl(189 94% 43%), hsl(189 94% 50%));
+  --color-muted: light-dark(hsl(240 4.8% 95.9%), hsl(240 3.7% 15.9%));
+  --color-border: light-dark(hsl(240 5.9% 90%), hsl(240 3.7% 15.9%));
 
   --font-sans: ui-sans-serif, system-ui, sans-serif;
 }
