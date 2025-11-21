@@ -18,7 +18,7 @@ export function Contact() {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch("/", {
+            const response = await fetch("/form.html", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData as any).toString(),
@@ -95,7 +95,6 @@ export function Contact() {
                                 data-netlify-honeypot="bot-field"
                                 onSubmit={handleSubmit}
                                 className="space-y-4"
-                                netlify
                             >
                                 {/* Netlify form fields */}
                                 <input type="hidden" name="form-name" value="contact" />
