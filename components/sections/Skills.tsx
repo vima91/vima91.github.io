@@ -89,7 +89,7 @@ export function Skills() {
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
                                 className="overflow-hidden"
                             >
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
                                     {skillCategories.map((category, index) => {
                                         const Icon = category.icon;
                                         return (

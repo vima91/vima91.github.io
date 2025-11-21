@@ -104,7 +104,7 @@ export function Projects() {
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
                                 className="overflow-hidden"
                             >
-                                <div className="space-y-6">
+                                <div className="space-y-12 p-6">
                                     {projects.map((project, index) => {
                                         const Icon = project.icon;
                                         return (
