@@ -3,7 +3,7 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { ChevronDown, Code2, Database, Cloud, GitBranch, Workflow, Terminal } from "lucide-react";
+import { ChevronDown, Code2, Database, Cloud, GitBranch, Workflow, Terminal, Handshake } from "lucide-react";
 
 export function Skills() {
     const ref = React.useRef(null);
@@ -14,38 +14,38 @@ export function Skills() {
         {
             icon: Code2,
             title: "Backend Development",
-            skills: [".NET", "C#", "ASP.NET Core", "Entity Framework", "RESTful APIs", "Microservices"],
+            skills: [".NET", "C#", "ASP.NET Core", "RESTful APIs", "System Design"],
             color: "text-primary"
-        },
-        {
-            icon: Terminal,
-            title: "Frontend Development",
-            skills: ["React", "Next.js", "TypeScript", "JavaScript", "Angular", "HTML/CSS"],
-            color: "text-accent"
         },
         {
             icon: Database,
             title: "Databases & Data",
-            skills: ["SQL Server", "PostgreSQL", "T-SQL", "Azure Data Studio", "Entity Framework", "Redgate"],
+            skills: ["SQL Server", "T-SQL", "Entity Framework", "Redis"],
             color: "text-purple-500"
         },
         {
             icon: Cloud,
             title: "Cloud & DevOps",
-            skills: ["Azure", "CI/CD", "Docker", "Azure DevOps", "Linux", "Windows Server"],
+            skills: ["Azure", "CI/CD", "Docker", "Azure DevOps", "Linux"],
             color: "text-blue-500"
         },
         {
             icon: GitBranch,
             title: "Tools & Version Control",
-            skills: ["Git", "GitHub", "TFS", "SVN", "JetBrains Suite", "Atlassian Suite"],
+            skills: ["Git", "Azure DevOps", "TFS", "SVN", "Atlassian Suite"],
             color: "text-orange-500"
         },
         {
             icon: Workflow,
             title: "Architecture & Methodologies",
-            skills: ["Microservices", "Design Patterns", "Agile", "Scrum", "Xtreme Programming", "TDD"],
+            skills: ["Design Patterns", "Agile", "Scrum", "TDD"],
             color: "text-green-500"
+        },
+        {
+            icon: Handshake,
+            title: "Teams",
+            skills: ["Hiring", "Direction", "Mentoring", "Team Building", "Team Management"],
+            color: "text-purple-500"
         },
     ];
 

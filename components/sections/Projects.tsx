@@ -3,7 +3,7 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { ChevronDown, ExternalLink, Github, Stethoscope, Building2, Truck, Globe } from "lucide-react";
+import { ChevronDown, ExternalLink, Stethoscope, Building2, Truck, Globe } from "lucide-react";
 
 export function Projects() {
     const ref = React.useRef(null);
@@ -15,51 +15,69 @@ export function Projects() {
             icon: Stethoscope,
             title: "Vosita Healthcare Platform",
             featured: true,
-            description: "Led the complete re-architecture of Vosita's healthcare platform, building a sophisticated integration solution connecting doctor clinic management systems with the main platform. Designed tiered microservices architecture serving as the central component of the business model.",
+            description: "Led the complete re-architecture of Vosita's healthcare platform, starting with building a great team, building a sophisticated integration solution connecting doctor clinic management systems with the main platform. Designed and implemented a modular monolithic architecture serving as the central component of the business model.",
             achievements: [
-                "Architected greenfield solution replacing legacy system",
-                "Designed tiered integration layer for clinic software systems",
-                "Led teams from inception to delivery using Agile methodologies",
-                "Built scalable .NET backend with Entity Framework and SQL Server"
+                "Spearheaded the backend development of the new Vosita website, ensuring high-quality code standards and future-proofing for maintainability.",
+                "Led the hiring process for new developers, ensuring a high standard of technical skills and cultural fit.",
+                "Mentored junior and mid-level engineers, improving code quality through constructive feedback and professional guidance.",
+                "Implemented a customized authentication server for managing multiple clients, streamlining authentication and authorization processes.",
+                "Established CI/CD pipelines on Azure, later delegating management to the DevOps team upon their hiring.",
+                "Enhanced SEO through Netlify, resulting in significant improvements in search rankings, enabling competition with a $3 billion competitor.",
+                "Fostered a collaborative and communicative work environment focused on creating user-centric products.",
+                "Conducted interviews and provided comprehensive feedback to stakeholders, aiding in the selection of top candidates.",
+                "Collaborated with business and finance teams to ensure HIPAA compliance across all products.",
+                "Partnered with the DevOps team to strengthen product security against potential threats.",
+                "Stayed current with technology trends, advocating for tools and practices that streamlined development and enhanced performance.",
+                "Conducted regular code reviews and provided career coaching to junior developers, fostering professional growth.",
+                "Automated repetitive tasks, identifying process improvements and implementing solutions to enhance team productivity.",
+                "Led retrospective meetings each sprint, driving continuous improvement in team processes and implementing actionable feedback.",
+                "Maintained the legacy Vosita website, collaborating with the team to implement new features and address ongoing issues.",
+                "Consulted with stakeholders to re-imagine the product, providing insights and recommending improved approaches to resolve existing challenges.",
+                "Convinced stakeholders to initiate a fresh solution, effectively communicating the long-term financial and technical benefits of moving away from the legacy system.",
+                "Architected the new solution, establishing the necessary infrastructure to support a fully-functional team from scratch.",
+                "Designed a tiered integration solution with correct layering and dependencies, positioning it as the central component of the business model by enabling seamless integration of the new Vosita website with various doctor’s clinic software systems."
             ],
-            technologies: [".NET", "C#", "Microservices", "SQL Server", "Azure", "Entity Framework"],
+            technologies: [".NET", "C#", "SQL Server", "Azure", "Azure DevOps", "Entity Framework", "Redis", "Twilio", "SendGrid", "Zoom", "Stripe", "HIPPA", "Hiring", "Coaching", "CI/CD", "SEO", "Google Maps", "Ipify", "OpenIddict", "ABP.IO"],
             link: "https://vosita.com",
             color: "from-primary to-accent"
         },
         {
             icon: Building2,
-            title: "Saudi Government Solutions",
+            title: "Thiqah",
             description: "Delivered multiple projects for Saudi Arabia's 2030 Vision including the Ministry of Culture project, completed 90 days ahead of schedule using Xtreme Programming techniques.",
             achievements: [
                 "Delivered ministry project in 90 days vs 6-month estimate",
-                "Implemented authentication server standards",
-                "Collaborated with flat-structured teams across 4 Vision 2030 projects"
+                "Implemented authentication server for serving multiple applications",
+                "Collaborated with flat-structured teams across 4 different projects for the 2030 Saudi Vision"
             ],
-            technologies: ["ABP.io", ".NET", "Azure DevOps", "Microsoft Stack"],
+            technologies: ["ABP.io", ".NET", "Azure DevOps", "Microsoft Stack", "Xtreme Programming"],
+            link: "https://thiqah.sa",
             color: "from-purple-500 to-pink-500"
         },
         {
             icon: Truck,
             title: "MCV Manufacturing Systems",
-            description: "Led digital transformation initiative migrating from manual processes to modern Git-based workflows and cloud services for Egypt's largest commercial vehicle manufacturer.",
+            description: "Led digital transformation initiative migrating from manual processes to more modern Git-based workflows and cloud services for Egypt's largest commercial vehicle manufacturer.",
             achievements: [
                 "Migrated from TFS to Git with organized repository structure",
                 "Established development processes and team standards",
                 "Implemented cloud services improving team productivity"
             ],
             technologies: ["Git", "Cloud Services", "Process Automation"],
+            link: "https://mcv-eg.com/",
             color: "from-blue-500 to-cyan-500"
         },
         {
             icon: Globe,
-            title: "International Client Projects",
-            description: "Worked with German and Ukrainian teams delivering solutions for major European clients including Adidas, Volkswagen, Leoni, and Morgenstern.",
+            title: "Evolvice",
+            description: "Worked with German and Ukrainian teams delivering solutions for major European clients including Adidas, DHL, Leoni, ThyssenKrupp and WTS.",
             achievements: [
-                "Led projects achieving high customer satisfaction",
+                "Collaborated on projects achieving high customer satisfaction",
                 "Managed multiple simultaneous international projects",
                 "Developed food waste management system from scratch"
             ],
             technologies: ["Agile", "International Collaboration", "Full-Stack Development"],
+            link: "https://www.evolvice.de/",
             color: "from-green-500 to-emerald-500"
         },
     ];
@@ -191,7 +209,7 @@ export function Projects() {
                         >
                             <p className="text-lg">
                                 From healthcare platforms to government solutions and international enterprise projects,
-                                I've delivered high-impact systems for diverse industries. Click above to explore my featured work.
+                                I&apos;ve delivered high-impact systems for diverse industries. Click above to explore my featured work.
                             </p>
                         </motion.div>
                     )}

@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { Mail, Send, Linkedin, Github, Twitter, Calendar, User, MessageSquare } from "lucide-react";
 
 export function Contact() {
@@ -22,7 +22,7 @@ export function Contact() {
             const response = await fetch("/form.html", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData as any).toString(),
+                body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
             });
 
             if (response.ok) {
@@ -33,7 +33,7 @@ export function Contact() {
                 setFormState("error");
                 setTimeout(() => setFormState("idle"), 5000);
             }
-        } catch (error) {
+        } catch {
             setFormState("error");
             setTimeout(() => setFormState("idle"), 5000);
         }
@@ -77,11 +77,11 @@ export function Contact() {
                 >
                     {/* Section heading */}
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 text-center font-[family-name:var(--font-space-grotesk)]">
-                        Let's <span className="gradient-text">Connect</span>
+                        Let&apos;s <span className="gradient-text">Connect</span>
                     </h2>
 
                     <p className="text-center text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-                        Interested in collaboration or consulting services? Reach out and let's discuss how we can work together.
+                        Interested in collaboration or consulting services? Reach out and let&apos;s discuss how we can work together.
                     </p>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -237,11 +237,13 @@ export function Contact() {
                                         transition={{ duration: 0.3 }}
                                         className="mt-4 p-4 bg-white rounded-lg inline-block"
                                     >
-                                        <img
+                                        <Image
                                             src="/contact-qr.png"
                                             alt="Contact vCard QR Code"
                                             className="w-48 h-48"
-                                            loading="lazy"
+                                            width={192}
+                                            height={192}
+                                            unoptimized
                                         />
                                         <p className="text-xs text-gray-600 mt-2">Scan to add contact</p>
                                     </motion.div>

@@ -28,7 +28,7 @@ export function About() {
                     {/* About content */}
                     <div className="glass-card space-y-6 text-lg leading-relaxed">
                         <p>
-                            I'm a software engineer with deep expertise in <span className="text-primary font-semibold">.NET backend development</span> and
+                            I&apos;m a software engineer with deep expertise in <span className="text-primary font-semibold">.NET backend development</span> and
                             a proven track record of building scalable, high-performance systems across diverse industries.
                         </p>
 
@@ -37,18 +37,22 @@ export function About() {
                             <span className="text-accent font-semibold">healthcare platforms</span> and{" "}
                             <span className="text-accent font-semibold">e-commerce solutions</span> to{" "}
                             <span className="text-accent font-semibold">enterprise systems</span> for government and multinational corporations.
-                            I've led teams, architected complex microservices solutions, and delivered projects for major clients including Adidas, Volkswagen, and various Saudi government ministries.
+                            I&apos;ve led teams, architected complex microservices and monolith solutions, and delivered projects for major clients including WTS, DHL, Saudi Government Ministry of Culture, and my own beloved <a href="https://vosita.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-accent transition-colors font-semibold">Vosita</a>.
                         </p>
 
                         <p>
-                            What sets me apart is my <span className="text-primary font-semibold">adaptability</span>—I'm not just a specialist,
-                            I'm a problem solver who can learn and master any technology needed to deliver exceptional results. Whether it's full-stack development,
-                            DevOps automation, or technical architecture, I bring a comprehensive approach to every challenge.
+                            What sets me apart is my <span className="text-primary font-semibold">adaptability</span>—I&apos;m not just a specialist,
+                            I&apos;m a problem solver who can learn and master any technology needed to deliver exceptional results. Whether it&apos;s full-stack development,
+                            DevOps automation, technical architecture, or even hiring a full-fledged, high-standard team to deliver an exceptional project, I bring a comprehensive approach to every challenge.
                         </p>
 
                         <p>
-                            I'm passionate about continuous improvement, mentoring teams, and leveraging modern technologies to create efficient,
+                            I&apos;m passionate about continuous improvement, mentoring teams, and leveraging modern technologies to create efficient,
                             maintainable solutions that drive real business value.
+                        </p>
+
+                        <p>
+                            I&apos;m currently obsessed with <span className="text-primary font-semibold">AI</span> and how it is transforming the world, especially software engineering and it&apos;s ability to save on development, testing and even automation costs, while maintaining quality.
                         </p>
 
                         {/* Quick stats or highlights */}
