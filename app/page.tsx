@@ -1,29 +1,13 @@
-import dynamic from "next/dynamic";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
+import { Projects } from "@/components/sections/Projects";
+import { Leadership } from "@/components/sections/Leadership";
+import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
-
-// Lazy load below-the-fold sections for better initial page load
-const Projects = dynamic(() => import("@/components/sections/Projects").then(mod => ({ default: mod.Projects })), {
-  loading: () => <div className="min-h-screen" />,
-});
-
-const Contact = dynamic(() => import("@/components/sections/Contact").then(mod => ({ default: mod.Contact })), {
-  loading: () => <div className="min-h-screen" />,
-});
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
-  return (
-    <main className="min-h-screen">
-      <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-    </main>
-  );
+  return <><a className="skip-link" href="#main-content">Skip to content</a><Header /><main id="main-content"><Hero /><Projects /><Leadership /><Experience /><Skills /><About /><Contact /></main><Footer /></>;
 }

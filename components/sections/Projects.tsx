@@ -1,220 +1,69 @@
-"use client";
-
-import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "framer-motion";
-import { ChevronDown, ExternalLink, Stethoscope, Building2, Truck, Globe } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 
 export function Projects() {
-    const ref = React.useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [isExpanded, setIsExpanded] = React.useState(false);
-
-    const projects = [
-        {
-            icon: Stethoscope,
-            title: "Vosita Healthcare Platform",
-            featured: true,
-            description: "Led the complete re-architecture of Vosita's healthcare platform, starting with building a great team, building a sophisticated integration solution connecting doctor clinic management systems with the main platform. Designed and implemented a modular monolithic architecture serving as the central component of the business model.",
-            achievements: [
-                "Spearheaded the backend development of the new Vosita website, ensuring high-quality code standards and future-proofing for maintainability.",
-                "Led the hiring process for new developers, ensuring a high standard of technical skills and cultural fit.",
-                "Mentored junior and mid-level engineers, improving code quality through constructive feedback and professional guidance.",
-                "Implemented a customized authentication server for managing multiple clients, streamlining authentication and authorization processes.",
-                "Established CI/CD pipelines on Azure, later delegating management to the DevOps team upon their hiring.",
-                "Enhanced SEO through Netlify, resulting in significant improvements in search rankings, enabling competition with a $3 billion competitor.",
-                "Fostered a collaborative and communicative work environment focused on creating user-centric products.",
-                "Conducted interviews and provided comprehensive feedback to stakeholders, aiding in the selection of top candidates.",
-                "Collaborated with business and finance teams to ensure HIPAA compliance across all products.",
-                "Partnered with the DevOps team to strengthen product security against potential threats.",
-                "Stayed current with technology trends, advocating for tools and practices that streamlined development and enhanced performance.",
-                "Conducted regular code reviews and provided career coaching to junior developers, fostering professional growth.",
-                "Automated repetitive tasks, identifying process improvements and implementing solutions to enhance team productivity.",
-                "Led retrospective meetings each sprint, driving continuous improvement in team processes and implementing actionable feedback.",
-                "Maintained the legacy Vosita website, collaborating with the team to implement new features and address ongoing issues.",
-                "Consulted with stakeholders to re-imagine the product, providing insights and recommending improved approaches to resolve existing challenges.",
-                "Convinced stakeholders to initiate a fresh solution, effectively communicating the long-term financial and technical benefits of moving away from the legacy system.",
-                "Architected the new solution, establishing the necessary infrastructure to support a fully-functional team from scratch.",
-                "Designed a tiered integration solution with correct layering and dependencies, positioning it as the central component of the business model by enabling seamless integration of the new Vosita website with various doctor’s clinic software systems."
-            ],
-            technologies: [".NET", "C#", "SQL Server", "Azure", "Azure DevOps", "Entity Framework", "Redis", "Twilio", "SendGrid", "Zoom", "Stripe", "HIPPA", "Hiring", "Coaching", "CI/CD", "SEO", "Google Maps", "Ipify", "OpenIddict", "ABP.IO"],
-            link: "https://vosita.com",
-            color: "from-primary to-accent"
-        },
-        {
-            icon: Building2,
-            title: "Thiqah",
-            description: "Delivered multiple projects for Saudi Arabia's 2030 Vision including the Ministry of Culture project, completed 90 days ahead of schedule using Xtreme Programming techniques.",
-            achievements: [
-                "Delivered ministry project in 90 days vs 6-month estimate",
-                "Implemented authentication server for serving multiple applications",
-                "Collaborated with flat-structured teams across 4 different projects for the 2030 Saudi Vision"
-            ],
-            technologies: ["ABP.io", ".NET", "Azure DevOps", "Microsoft Stack", "Xtreme Programming"],
-            link: "https://thiqah.sa",
-            color: "from-purple-500 to-pink-500"
-        },
-        {
-            icon: Truck,
-            title: "MCV Manufacturing Systems",
-            description: "Led digital transformation initiative migrating from manual processes to more modern Git-based workflows and cloud services for Egypt's largest commercial vehicle manufacturer.",
-            achievements: [
-                "Migrated from TFS to Git with organized repository structure",
-                "Established development processes and team standards",
-                "Implemented cloud services improving team productivity"
-            ],
-            technologies: ["Git", "Cloud Services", "Process Automation"],
-            link: "https://mcv-eg.com/",
-            color: "from-blue-500 to-cyan-500"
-        },
-        {
-            icon: Globe,
-            title: "Evolvice",
-            description: "Worked with German and Ukrainian teams delivering solutions for major European clients including Adidas, DHL, Leoni, ThyssenKrupp and WTS.",
-            achievements: [
-                "Collaborated on projects achieving high customer satisfaction",
-                "Managed multiple simultaneous international projects",
-                "Developed food waste management system from scratch"
-            ],
-            technologies: ["Agile", "International Collaboration", "Full-Stack Development"],
-            link: "https://www.evolvice.de/",
-            color: "from-green-500 to-emerald-500"
-        },
-    ];
-
-    return (
-        <section id="projects" className="py-20 sm:py-32" ref={ref}>
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-6xl mx-auto"
-                >
-                    {/* Section heading */}
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 text-center font-[family-name:var(--font-space-grotesk)]">
-                        Featured <span className="gradient-text">Projects</span>
-                    </h2>
-
-                    {/* Expand/Collapse trigger */}
-                    <div className="text-center mb-12">
-                        <button
-                            onClick={() => setIsExpanded(!isExpanded)}
-                            className="group glass-card px-6 py-4 hover:bg-primary/10 transition-all duration-300 inline-flex items-center gap-3"
-                        >
-                            <span className="text-lg font-semibold">
-                                {isExpanded ? "Show Less" : "View Featured Projects"}
-                            </span>
-                            <ChevronDown
-                                className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? "rotate-180" : "rotate-0"
-                                    }`}
-                            />
-                        </button>
-                    </div>
-
-                    {/* Projects grid - collapsible */}
-                    <AnimatePresence>
-                        {isExpanded && (
-                            <motion.div
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: "auto" }}
-                                exit={{ opacity: 0, height: 0 }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="overflow-hidden"
-                            >
-                                <div className="space-y-12 p-6">
-                                    {projects.map((project, index) => {
-                                        const Icon = project.icon;
-                                        return (
-                                            <motion.div
-                                                key={project.title}
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                                className={`glass-card hover:shadow-2xl hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 relative ${project.featured ? "border-2 border-primary/50" : ""
-                                                    }`}
-                                            >
-                                                {/* Gradient background */}
-                                                <div className={`absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l ${project.color} opacity-10 blur-3xl`} />
-
-                                                <div className="relative">
-                                                    {/* Featured badge */}
-                                                    {project.featured && (
-                                                        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                                                            <span className="!text-white">⭐ Featured</span>
-                                                        </div>
-                                                    )}
-
-                                                    <div className="flex items-start gap-4 mb-4">
-                                                        <div className={`p-3 rounded-xl bg-gradient-to-br ${project.color} text-white`}>
-                                                            <Icon className="w-8 h-8" />
-                                                        </div>
-                                                        <div className="flex-1">
-                                                            <div className="flex items-center gap-3 mb-2">
-                                                                <h3 className="font-bold text-2xl">{project.title}</h3>
-                                                                {project.link && (
-                                                                    <a
-                                                                        href={project.link}
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
-                                                                        className="text-primary hover:text-accent transition-colors"
-                                                                    >
-                                                                        <ExternalLink className="w-5 h-5" />
-                                                                    </a>
-                                                                )}
-                                                            </div>
-                                                            <p className="text-muted-foreground mb-4">{project.description}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Achievements */}
-                                                    <div className="mb-4">
-                                                        <h4 className="font-semibold mb-2 text-sm uppercase tracking-wide text-primary">Key Achievements:</h4>
-                                                        <ul className="space-y-2">
-                                                            {project.achievements.map((achievement, i) => (
-                                                                <li key={i} className="flex items-center gap-2 text-sm">
-                                                                    <span className="text-accent shrink-0">▸</span>
-                                                                    <span className="flex-1">{achievement}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-
-                                                    {/* Technologies */}
-                                                    <div className="flex flex-wrap gap-2">
-                                                        {project.technologies.map((tech) => (
-                                                            <span
-                                                                key={tech}
-                                                                className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20 hover:bg-primary/20 hover:border-primary/40 transition-colors"
-                                                            >
-                                                                {tech}
-                                                            </span>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </motion.div>
-                                        );
-                                    })}
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-
-                    {/* Summary when collapsed */}
-                    {!isExpanded && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="text-center text-muted-foreground max-w-3xl mx-auto"
-                        >
-                            <p className="text-lg">
-                                From healthcare platforms to government solutions and international enterprise projects,
-                                I&apos;ve delivered high-impact systems for diverse industries. Click above to explore my featured work.
-                            </p>
-                        </motion.div>
-                    )}
-                </motion.div>
-            </div>
-        </section>
-    );
+  return (
+    <section id="projects" className="section wrap" aria-labelledby="work-title">
+      <div className="section-heading">
+        <div><p className="eyebrow">01 / Selected work</p><h2 id="work-title">Decisions.<br /><span className="text-accent">Then delivery.</span></h2></div>
+        <p>A few examples of the teams, systems, and engineering practices I&apos;ve helped build.</p>
+      </div>
+      <article id="vosita" className="case-study flagship">
+        <div className="case-banner"><span className="mono">01 / Healthcare</span><a href="https://vosita.com" target="_blank" rel="noopener noreferrer">Visit Vosita <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+        <div className="case-grid">
+          <div>
+            <p className="eyebrow">Vosita / Lead Engineer → Engineering Manager</p>
+            <h3>Build the team.<br />Rebuild the platform.</h3>
+            <p className="case-intro">A legacy platform needed a new foundation. I secured support for a rebuild, designed the replacement, and built the engineering team to deliver it.</p>
+            <div className="tags"><span>Team building</span><span>.NET / Azure</span><span>API integrations</span></div>
+          </div>
+          <div className="case-facts">
+            <div><span className="mono">My responsibility</span><p>Architecture, hiring, delivery, and engineering standards. From a part-time lead role in 2020 to Engineering Manager in 2022.</p></div>
+            <div><span className="mono">What changed</span><p>A 15-person team. An integration layer connecting three clinic systems. Automated integration rollout reduced from weeks to minutes.</p></div>
+            <div><span className="mono">Built to evolve</span><p>Led the rebuilt platform from .NET 5 through .NET 10, established CI/CD, and hired a dedicated DevOps team to take ownership.</p></div>
+          </div>
+        </div>
+        <details className="case-details">
+          <summary>Architecture &amp; leadership decisions <Plus size={20} aria-hidden="true" /></summary>
+          <div className="detail-body">
+            <p>I demonstrated the constraints of the legacy .NET Framework codebase and SQL database to secure executive approval for a fresh architecture. The new API integration layer connected clinic management systems to the platform and supported several thousand requests daily.</p>
+            <p>A multi-client authentication server unified sign-in for web, mobile, the Hangfire admin console, and integration clients. Alongside the technical work, I introduced mandatory code reviews, sprint retrospectives, and mentorship, and worked with business, finance, and DevOps on healthcare security controls.</p>
+          </div>
+        </details>
+      </article>
+      <div className="case-pair">
+        <article id="ai-workflows" className="case-study ai-case">
+          <div className="case-banner"><span className="mono">02 / Engineering practice</span><span className="mono">Vosita</span></div>
+          <div className="case-content">
+            <h3>AI in the workflow.<br />Engineers in control.</h3>
+            <p>I introduced shared repository instructions and a Git-backed skills and plugins catalog for Claude Code and Codex, giving the team repeatable workflows for investigation, implementation, and review.</p>
+            <ol className="workflow" aria-label="Agent-assisted bug-fix workflow">
+              {["Issue context", "Trace investigation", "Implementation", "Quality & regression checks", "Human review"].map((step, i) => <li key={step}><span className="mono">0{i + 1}</span>{step}</li>)}
+            </ol>
+            <p className="case-caption">Azure DevOps context → Seq traces → repository conventions → SonarQube findings and regression tests → human review.</p>
+            <details className="case-details">
+              <summary>How the workflow fits together <Plus size={20} aria-hidden="true" /></summary>
+              <div className="detail-body">
+                <p>The bug-fix workflow reads the defect, parent requirements, and related work; investigates correlation IDs and traces; then follows the target repository&apos;s conventions. Findings link back to evidence, tests include a documented rationale, and changes pass to an engineer for review.</p>
+                <p>The same shared catalog supports feature intake, PR review, refactoring, test coverage, and codebase health. Human review remains an explicit boundary.</p>
+              </div>
+            </details>
+          </div>
+        </article>
+        <article id="thiqah" className="case-study delivery-case">
+          <div className="case-banner"><span className="mono">03 / Government delivery</span><span className="mono">Thiqah</span></div>
+          <div className="case-content">
+            <h3>A six-month estimate.<br />Delivered in 90 days.</h3>
+            <p>As a Senior Software Engineer at Thiqah, I helped deliver a Ministry of Culture platform using Extreme Programming in a flat-structured team.</p>
+            <div className="delivery-number" aria-label="90 days"><strong>90</strong><span className="mono">days<br />to delivery</span></div>
+            <p>Across four Saudi Vision 2030 projects, my work combined Microsoft technologies, Azure DevOps, and ABP.io.</p>
+            <div className="tags"><span>Extreme Programming</span><span>.NET</span><span>ABP.io</span></div>
+            <details className="case-details">
+              <summary>Role &amp; delivery context <Plus size={20} aria-hidden="true" /></summary>
+              <div className="detail-body"><p>This was a full-time Senior Software Engineer role from August 2020 to December 2021, alongside my part-time work at Vosita. The 90-day delivery was a team outcome; my contribution was hands-on engineering within that team.</p></div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
 }

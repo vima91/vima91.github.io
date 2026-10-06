@@ -19,22 +19,26 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Evram Ehab - Software Engineer & Consultant",
-  description: "Software engineer specialized in .NET backend development and full-stack solutions. Expert consultant with experience in healthcare platforms, microservices architecture, and technical leadership.",
-  keywords: ["Software Engineer", ".NET", "Backend Development", "Technical Consultant", "Full-Stack", "Microservices", "Azure", "React", "Next.js"],
+  metadataBase: new URL("https://evram.me"),
+  title: "Evram Ehab | Software Engineering Manager",
+  description: "Engineering manager with hands-on .NET and Azure expertise. Building teams, leading platform modernization, and introducing practical AI engineering workflows.",
+  keywords: ["Evram Ehab", "Software Engineering Manager", "Engineering Leadership", ".NET", "Azure", "System Architecture", "AI Engineering Workflows"],
+  alternates: { canonical: "/" },
   authors: [{ name: "Evram Ehab" }],
   openGraph: {
-    title: "Evram Ehab - Software Engineer & Consultant",
-    description: "Software engineer specialized in .NET backend development. Expert consultant for technical architecture and full-stack solutions.",
+    title: "Evram Ehab | Software Engineering Manager",
+    description: "I build engineering teams that deliver. Hands-on .NET and Azure expertise, platform modernization, and practical AI workflows.",
     url: "https://evram.me",
     siteName: "Evram Ehab",
     locale: "en_US",
     type: "website",
+    images: [{ url: "/social-preview.png", width: 1200, height: 630, alt: "Evram Ehab — Software Engineering Manager. I build engineering teams that deliver." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Evram Ehab - Software Engineer & Consultant",
-    description: "Software engineer specialized in .NET backend development and technical consulting.",
+    title: "Evram Ehab | Software Engineering Manager",
+    description: "Engineering leadership, .NET and Azure architecture, and practical AI workflows.",
+    images: ["/social-preview.png"],
   },
   robots: {
     index: true,
@@ -55,7 +59,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false}
+          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>

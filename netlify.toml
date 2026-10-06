@@ -2,7 +2,7 @@
   command = "npm run export"
   publish = "out"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[headers]]
+  for = "/CV/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

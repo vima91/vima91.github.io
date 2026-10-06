@@ -1,116 +1,29 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
+import { useRef, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X } from "lucide-react";
+
+const links = [["#projects", "Work"], ["#leadership", "Leadership"], ["#experience", "Experience"], ["#contact", "Contact"]];
 
 export function Header() {
-    const [isScrolled, setIsScrolled] = React.useState(false);
-    const [isVisible, setIsVisible] = React.useState(true);
-    const [lastScrollY, setLastScrollY] = React.useState(0);
-    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-
-    React.useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-
-            // Show/hide header based on scroll direction
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsVisible(false);
-                setMobileMenuOpen(false); // Close mobile menu on scroll down
-            } else {
-                setIsVisible(true);
-            }
-
-            // Add glass effect when scrolled
-            setIsScrolled(currentScrollY > 50);
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
-
-    const navLinks = [
-        { href: "#home", label: "Home" },
-        { href: "#about", label: "About" },
-        { href: "#skills", label: "Skills" },
-        { href: "#projects", label: "Projects" },
-        { href: "#contact", label: "Contact" },
-    ];
-
-    const handleLinkClick = () => {
-        setMobileMenuOpen(false);
-    };
-
-    return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
-                } ${isScrolled ? "glass py-3" : "bg-transparent py-4"}`}
-        >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <nav className="flex items-center justify-between">
-                    {/* Logo */}
-                    <Link
-                        href="#home"
-                        className="text-xl sm:text-2xl font-bold gradient-text font-[family-name:var(--font-space-grotesk)]"
-                    >
-                        Evram Ehab
-                    </Link>
-
-                    {/* Desktop Navigation Links */}
-                    <div className="hidden md:flex items-center gap-1 lg:gap-2">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                className="px-3 lg:px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/10 transition-colors"
-                            >
-                                {link.label}
-                            </a>
-                        ))}
-                    </div>
-
-                    {/* Right Side: Theme Toggle + Mobile Menu Button */}
-                    <div className="flex items-center gap-3">
-                        <ThemeToggle />
-
-                        {/* Mobile Hamburger Menu Button */}
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden glass-card p-3 hover:scale-110 transition-transform"
-                            aria-label="Toggle mobile menu"
-                        >
-                            {mobileMenuOpen ? (
-                                <X className="w-5 h-5 text-primary" />
-                            ) : (
-                                <Menu className="w-5 h-5 text-primary" />
-                            )}
-                        </button>
-                    </div>
-                </nav>
-
-                {/* Mobile Menu Dropdown */}
-                {mobileMenuOpen && (
-                    <div className="md:hidden mt-4 glass-card rounded-lg overflow-hidden animate-in fade-in slide-in-from-top-5 duration-300">
-                        <div className="flex flex-col">
-                            {navLinks.map((link, index) => (
-                                <a
-                                    key={link.href}
-                                    href={link.href}
-                                    onClick={handleLinkClick}
-                                    className={`px-4 py-3 text-base font-medium hover:bg-primary/10 transition-colors ${index !== navLinks.length - 1 ? "border-b border-border/50" : ""
-                                        }`}
-                                    style={{ animationDelay: `${index * 50}ms` }}
-                                >
-                                    {link.label}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </div>
-        </header>
-    );
+  const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  return (
+    <header className="site-header" onKeyDown={event => { if (event.key === "Escape" && open) { setOpen(false); menuButton.current?.focus(); } }}>
+      <div className="wrap header-inner">
+        <a className="wordmark" href="#home" aria-label="Evram Ehab, home" onClick={() => setOpen(false)}>EVRAM<span>.</span></a>
+        <nav className="desktop-nav" aria-label="Main navigation">{links.map(([href, title]) => <a href={href} key={href}>{title}</a>)}</nav>
+        <div className="header-controls">
+          <ThemeToggle />
+          <a className="header-resume" href="/CV/Evrams-CV.pdf" download="Evram-Ehab-Resume.pdf">Resume <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <button ref={menuButton} className="menu-button" type="button" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>{open ? <X size={21} aria-hidden="true" /> : <Menu size={21} aria-hidden="true" />}</button>
+        </div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation" className="mobile-nav" hidden={!open}>
+        {links.map(([href, title]) => <a href={href} key={href} onClick={() => setOpen(false)}>{title}<ArrowUpRight size={18} aria-hidden="true" /></a>)}
+        <a href="/CV/Evrams-CV.pdf" download="Evram-Ehab-Resume.pdf" onClick={() => setOpen(false)}>Download resume<ArrowUpRight size={18} aria-hidden="true" /></a>
+      </nav>
+    </header>
+  );
 }
