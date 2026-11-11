@@ -14,7 +14,7 @@ export function Hero() {
           <p className="hero-description">Hands-on .NET and Azure expertise. Experience building teams, leading platform modernization, and improving how software gets delivered.</p>
           <div className="actions">
             <a className="button primary" href="#experience">View my experience <ArrowDown size={19} aria-hidden="true" /></a>
-            <a className="button" href="/CV/Evrams-CV.pdf" download="Evram-Ehab-Resume.pdf">Download resume <Download size={19} aria-hidden="true" /></a>
+            <a className="button" href="/CV/Evram-Ehab-Resume.pdf" download="Evram-Ehab-Resume.pdf">Download resume <Download size={19} aria-hidden="true" /></a>
           </div>
           <div className="hero-links mono">
             <a href="mailto:e@evram.me">Email me <ArrowUpRight size={16} aria-hidden="true" /></a>
